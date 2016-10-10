@@ -43,20 +43,20 @@
     OCLinkList *ptr = head->next;
 
     OCLinkList *head1 = [[OCLinkList alloc] init];
-    head1->next1 = nil;
+    head1->next = nil;
     while (ptr != nil) {
         OCLinkList *node = [[OCLinkList alloc] init];
-        node = ptr;
-        node->next1 = head1->next1;
-        head1->next1 = node;
+        node->data = ptr->data;
+        node->next = head1->next;
+        head1->next = node;
         ptr = ptr->next;
-        NSLog(@"%@---%@---",next,next1);
+        //NSLog(@"%@------",[ptr->data intValue]);
     }
     
-    OCLinkList *ptr1 = head1->next1;
+    OCLinkList *ptr1 = head1->next;
     while (ptr1 != nil) {
         printf("%d ", [ptr1->data intValue]);
-        ptr1 = ptr1->next1;
+        ptr1 = ptr1->next;
     }
     printf("\n");
  
